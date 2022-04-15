@@ -1,0 +1,16 @@
+# =================        NOT NEED        ================= #
+.idea
+node_modules
+build
+
+# ================= mistake commit prevent ================= #
+
+# source js
+src/*.js
+src/**/*.js
+src/**/*.map
+
+# test js
+test/*.js
+test/**/*.js
+test/**/*.map

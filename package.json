@@ -1,0 +1,10 @@
+{
+    "name": "discordp",
+    "version": "1.0.0",
+    "dependencies": {
+        "discord.js": "^13.6.0"
+    },
+    "main": "index.js",
+    "author": "PleahMaCaka",
+    "license": "MIT"
+}
