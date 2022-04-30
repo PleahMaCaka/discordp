@@ -2,13 +2,16 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "CommonJS",
-        "outDir": "build"
+        "outDir": "build",
+        "sourceMap": false
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "src/*.ts",
+        "test/*.ts",
+        "test/**/*.ts"
     ],
     "exclude": [
-        "node_modules",
-        "test"
+        "node_modules"
     ]
 }

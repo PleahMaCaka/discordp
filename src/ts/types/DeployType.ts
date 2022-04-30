@@ -1,0 +1,1 @@
+export type DeployType = "GUILD" | "GLOBAL"

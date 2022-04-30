@@ -4,6 +4,8 @@ node_modules
 build
 
 # ================= mistake commit prevent ================= #
+# test bot config
+test/config.json
 
 # source js
 src/*.js
