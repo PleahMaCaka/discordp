@@ -27,13 +27,17 @@ export class Client extends ClientJS {
 		return this.guilds.cache.map(guild => guild.id)
 	}
 
-	public static async addSlash(slash: Slash) {
+	public static addSlash(slash: Slash) {
 		this._allSlashInfo.push({
 			name: slash.name,
 			description: slash.description ? slash.description : ""
 		})
 		// TODO add verity name check
 		this._allSlash.set(slash.name, slash)
+	}
+
+	public addSlash(slash: Slash) {
+		Client.addSlash(slash)
 	}
 
 	private _slashInteractionHandler() {
@@ -55,10 +59,11 @@ export class Client extends ClientJS {
 		const rest = new REST({ version: '9' }).setToken(token)
 
 		if (this.debug) console.log("Starting deploy (/) commands.")
-		if (this.debug) console.log(Client.allSlashInfo)
+		if (this.debug) console.log(`ALL SLASH: ${Client.allSlashInfo}`)
 
 		this.getAllGuildsId().forEach(async (guild) => {
 			try {
+				if (this.debug) console.log(`DEPLOY -> ${guild}`)
 				await rest.put(
 					Routes.applicationGuildCommands(this.user!!.id, guild),
 					{ body: Client.allSlashInfo }
