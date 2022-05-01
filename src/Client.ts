@@ -1,12 +1,11 @@
-import { Client as ClientJS, ClientOptions, Interaction } from "discord.js";
-import { Slash } from "./ts/interface/Slash";
-import { SlashInfo } from "./ts/interface/SlashInfo";
-import { REST } from "@discordjs/rest";
-import { Routes } from "discord-api-types/v9";
-import { DeployType } from "./ts/types/DeployType";
+import { Client as ClientJS, ClientOptions, Interaction } from "discord.js"
+import { Slash } from "./ts/interface/Slash"
+import { SlashInfo } from "./ts/interface/SlashInfo"
+import { REST } from "@discordjs/rest"
+import { Routes } from "discord-api-types/v9"
+import { DeployType } from "./ts/types/DeployType"
 
 export class Client extends ClientJS {
-
 
 	debug: boolean
 
@@ -42,7 +41,7 @@ export class Client extends ClientJS {
 
 	private _slashInteractionHandler() {
 		this.on('interactionCreate', async (interaction: Interaction) => {
-			if (!interaction.isCommand()) return;
+			if (!interaction.isCommand()) return
 
 			try {
 				await Client._allSlash.get(interaction.commandName)!!.execute(interaction, this)
@@ -55,6 +54,7 @@ export class Client extends ClientJS {
 	// deploy the slash command
 	public deploy(token: string, deployType: DeployType = "GUILD") {
 		// TODO GLOBAL DEPLOY
+		// TODO Automatic command deploy when the bot join to the guild
 		this._slashInteractionHandler()
 		const rest = new REST({ version: '9' }).setToken(token)
 
