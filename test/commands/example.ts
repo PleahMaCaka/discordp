@@ -1,4 +1,4 @@
-import { Slash } from "../../build/ts/interface/Slash";
+import { Slash } from "../../src/ts/interface/Slash"
 import { CommandInteraction } from "discord.js";
 
 export const example: Slash = {
