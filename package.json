@@ -1,7 +1,7 @@
 {
     "name": "discordp",
-    "version": "1.0.1",
-    "main": "src/Client.ts",
+    "version": "1.1.0",
+    "main": "package/Client.d.ts",
     "author": "PleahMaCaka",
     "license": "MIT",
     "bugs": "https://github.com/PleahMaCaka/discordp/issues",
@@ -32,6 +32,7 @@
         "url": "git+https://github.com/PleahMaCaka/discordp.git"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "test:bot": "yarn build && ts-node test/bot.ts"
     }
 }
