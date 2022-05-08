@@ -1,6 +1,6 @@
-import { Client } from "../src/Client";
+import { Client } from "../package/Client";
+import { ALL_INTENTS } from "../package/util/AllIntents";
 import { example } from "./commands/example";
-import { ALL_INTENTS } from "../src/util/AllIntents";
 
 const config = require("./config.json")
 

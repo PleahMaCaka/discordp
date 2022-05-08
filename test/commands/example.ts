@@ -1,5 +1,5 @@
-import { Slash } from "../../src/ts/interface/Slash"
 import { CommandInteraction } from "discord.js";
+import { Slash } from "../../package/ts/interface/Slash";
 
 export const example: Slash = {
 	name: "example",
