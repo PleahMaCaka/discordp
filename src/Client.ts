@@ -4,7 +4,7 @@ import { SlashInfo } from "./ts/interface/SlashInfo"
 import { REST } from "@discordjs/rest"
 import { Routes } from "discord-api-types/v9"
 import { DeployType } from "./ts/types/DeployType"
-import Logger from "@pleahmacaka/logger";
+import Logger from "@pleahmacaka/logger"
 
 export class Client extends ClientJS {
 
@@ -17,10 +17,10 @@ export class Client extends ClientJS {
 
 	private static _allSlash: Map<string, Slash> = new Map<string, Slash>()
 
-	private static _allSlashInfo: SlashInfo[] = new Array<SlashInfo>()
+	private static _allSlashInfo: Map<string, SlashInfo> = new Map<string, SlashInfo>()
 
-	static get allSlashInfo(): SlashInfo[] {
-		return this._allSlashInfo
+	public static allSlashInfo(): Array<SlashInfo> {
+		return Array.from(this._allSlashInfo.values())
 	}
 
 	public getAllGuildsId() {
@@ -28,7 +28,7 @@ export class Client extends ClientJS {
 	}
 
 	public static addSlash(slash: Slash) {
-		this._allSlashInfo.push({
+		this._allSlashInfo.set(slash.name, {
 			name: slash.name,
 			description: slash.description ? slash.description : ""
 		})
@@ -74,7 +74,7 @@ export class Client extends ClientJS {
 				if (this.debug) Logger.log("DEBUG", `DEPLOY -> ${guild}`)
 				await rest.put(
 					Routes.applicationGuildCommands(this.user!!.id, guild),
-					{ body: Client.allSlashInfo }
+					{ body: Client.allSlashInfo() }
 				)
 			} catch (e) {
 				/*
