@@ -4,6 +4,7 @@ import { SlashInfo } from "./ts/interface/SlashInfo"
 import { REST } from "@discordjs/rest"
 import { Routes } from "discord-api-types/v9"
 import { DeployType } from "./ts/types/DeployType"
+import Logger from "@pleahmacaka/logger";
 
 export class Client extends ClientJS {
 
@@ -58,12 +59,19 @@ export class Client extends ClientJS {
 		this._slashInteractionHandler()
 		const rest = new REST({ version: '9' }).setToken(token)
 
-		if (this.debug) console.log("Starting deploy (/) commands.")
-		if (this.debug) console.log(`ALL SLASH: ${Client.allSlashInfo}`)
+		if (this.debug) Logger.log("INFO", "Starting deploy (/) commands.")
+		if (this.debug) {
+			Logger.log("DEBUG", "✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧")
+			Logger.log("DEBUG", "ALL SLASH:")
+			Client._allSlashInfo.forEach(slash => {
+				Logger.log("DEBUG", `${slash.name} :: ${slash.description}`)
+			})
+			Logger.log("DEBUG", "✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧")
+		}
 
 		this.getAllGuildsId().forEach(async (guild) => {
 			try {
-				if (this.debug) console.log(`DEPLOY -> ${guild}`)
+				if (this.debug) Logger.log("DEBUG", `DEPLOY -> ${guild}`)
 				await rest.put(
 					Routes.applicationGuildCommands(this.user!!.id, guild),
 					{ body: Client.allSlashInfo }
