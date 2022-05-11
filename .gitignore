@@ -15,3 +15,8 @@ src/**/*.map
 # test js
 test/**/*.js
 test/**/*.map
+
+# ignore test bot
+dev/config.json
+dev/**/*.js
+dev/**/*.map
