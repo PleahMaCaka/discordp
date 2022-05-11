@@ -1,6 +1,6 @@
 {
     "name": "discordp",
-    "version": "1.1.2",
+    "version": "1.1.4",
     "main": "package/Client.js",
     "types": "package/Client.d.ts",
     "author": "PleahMaCaka",
@@ -24,7 +24,7 @@
         "utf-8-validate": "^5.0.9",
         "zlib-sync": "^0.1.7"
     },
-    "description": "Discord.js framework written in TypeScript",
+    "description": "Discord.js superset written in TypeScript",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/PleahMaCaka/discordp.git"
