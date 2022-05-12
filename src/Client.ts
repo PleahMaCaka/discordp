@@ -54,7 +54,6 @@ export class Client extends ClientJS {
 
 	// deploy the slash command
 	public deploy(token: string, deployType: DeployType = "GUILD") {
-		// TODO GLOBAL DEPLOY
 		// TODO Automatic command deploy when the bot join to the guild
 		this._slashInteractionHandler()
 		const rest = new REST({ version: '9' }).setToken(token)
@@ -69,21 +68,31 @@ export class Client extends ClientJS {
 			Logger.log("DEBUG", "✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧")
 		}
 
-		this.getAllGuildsId().forEach(async (guild) => {
-			try {
-				if (this.debug) Logger.log("DEBUG", `DEPLOY -> ${guild}`)
-				await rest.put(
-					Routes.applicationGuildCommands(this.user!!.id, guild),
-					{ body: Client.allSlashInfo() }
-				)
-			} catch (e) {
-				/*
-				* about the error case (reason: Client network socket disconnected before secure TLS connection was established):
-				* ref this: https://stackoverflow.com/questions/53593182/client-network-socket-disconnected-before-secure-tls-connection-was-established
-				* or sometimes you just have to keep trying
-				*/
-				console.log(e)
-			}
-		})
+		if (deployType == "GUILD") {
+			this.getAllGuildsId().forEach(async (guild) => {
+				try {
+					if (this.debug) Logger.log("DEBUG", `DEPLOY -> ${guild}`)
+					await rest.put(
+						Routes.applicationGuildCommands(this.user!!.id, guild),
+						{ body: Client.allSlashInfo() }
+					)
+				} catch (e) {
+					/*
+					* about the error case (reason: Client network socket disconnected before secure TLS connection was established):
+					* ref this: https://stackoverflow.com/questions/53593182/client-network-socket-disconnected-before-secure-tls-connection-was-established
+					* or sometimes you just have to keep trying
+					*/
+					console.log(e)
+				}
+			})
+		}
+		if (deployType == "GLOBAL") {
+			rest.put(
+				Routes.applicationCommands(this.user!!.id),
+				{ body: Client.allSlashInfo() }
+			).then(() => {
+				Logger.log("DEBUG", "GLOBALLY DEPLOYED!")
+			})
+		}
 	}
 }
