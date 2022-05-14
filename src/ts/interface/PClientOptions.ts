@@ -1,0 +1,3 @@
+interface pClientOptions {
+	debug?: boolean
+}

@@ -1,5 +1,5 @@
 import { CommandInteraction } from "discord.js";
-import { Client } from "../../Client";
+import { Client } from "../../../Client";
 
 export interface Slash {
 	name: string
