@@ -4,13 +4,13 @@
         "module": "CommonJS",
         "outDir": "package",
         "sourceMap": false,
-        "declaration": true
+        "declaration": true,
+        "strict": true
     },
     "include": [
         "src/**/*.ts"
     ],
     "exclude": [
-        "node_modules",
-        "test/**/*.ts"
+        "node_modules"
     ]
 }
