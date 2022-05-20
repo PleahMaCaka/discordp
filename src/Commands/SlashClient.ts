@@ -1,8 +1,8 @@
-import { SlashInfo } from "../ts/interface/Slash/SlashInfo";
+import { SlashInfo } from "../TypeScript/Interface/Slash/SlashInfo";
 import Logger from "@pleahmacaka/logger";
-import { Slash } from "../ts/interface/Slash/Slash";
-import { SlashClientOptions } from "../ts/interface/SlashClient/SlashClientOptions";
-import { DeployType } from "../ts/types/DeployType";
+import { Slash } from "../TypeScript/Interface/Slash/Slash";
+import { SlashClientOptions } from "../TypeScript/Interface/SlashClientOptions";
+import { DeployType } from "../TypeScript/Type/DeployType";
 import { Collection } from "discord.js";
 import { REST } from "@discordjs/rest";
 import { Client } from "../Client";
@@ -13,7 +13,9 @@ export class SlashClient {
 	//////////////////////////////
 	// Constructor
 	//////////////////////////////
-	constructor(options?: SlashClientOptions) {
+	constructor(options: SlashClientOptions = {
+		slashInteractionHanding: true
+	}) {
 		if (!options.slashInteractionHanding) options.slashInteractionHanding = true
 
 		if (options.slashInteractionHanding) SlashClient._slashInteractionHandler()
@@ -47,7 +49,7 @@ export class SlashClient {
 		Client.getInstance().once("interactionCreate", async (interaction) => {
 			if (!interaction.isCommand()) return
 			try {
-				await SlashClient.getSlash(interaction.commandName).execute(interaction, Client.getInstance())
+				await SlashClient.getSlash(interaction.commandName)!!.execute(interaction, Client.getInstance())
 			} catch (e) {
 				SlashClient.getAllSlashInfo().forEach(slashInfo => {
 					if (interaction.commandName == slashInfo.name) {
@@ -91,7 +93,7 @@ export class SlashClient {
 	////////////////////
 	// Don't be using to here try-catch and don't add void to return type
 
-	public static getSlash(key: string): Slash {
+	public static getSlash(key: string): Slash | undefined {
 		return this._allSlash.get(key)
 	}
 
@@ -99,7 +101,7 @@ export class SlashClient {
 		return this._allSlash.map(slash => slash)
 	}
 
-	public static getSlashInfo(key: string): SlashInfo {
+	public static getSlashInfo(key: string): SlashInfo | undefined {
 		return this._allSlashInfo.get(key)
 	}
 
