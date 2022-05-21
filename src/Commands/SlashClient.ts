@@ -1,7 +1,6 @@
 import { SlashInfo } from "../TypeScript/Interface/Slash/SlashInfo";
 import Logger from "@pleahmacaka/logger";
 import { Slash } from "../TypeScript/Interface/Slash/Slash";
-import { SlashClientOptions } from "../TypeScript/Interface/SlashClientOptions";
 import { DeployType } from "../TypeScript/Type/DeployType";
 import { Collection } from "discord.js";
 import { REST } from "@discordjs/rest";
@@ -13,12 +12,8 @@ export class SlashClient {
 	//////////////////////////////
 	// Constructor
 	//////////////////////////////
-	constructor(options: SlashClientOptions = {
-		slashInteractionHanding: true
-	}) {
-		if (!options.slashInteractionHanding) options.slashInteractionHanding = true
 
-		if (options.slashInteractionHanding) SlashClient._slashInteractionHandler()
+	constructor() {
 	}
 
 	//////////////////////////////
@@ -26,8 +21,6 @@ export class SlashClient {
 	//////////////////////////////
 	// Collection is extends Vanilla Map, is more effective,
 	// and it is included in discord.js!
-
-	private static instance: SlashClient
 
 	/**
 	 * @description Map of SlashObject, include executable function
@@ -45,7 +38,7 @@ export class SlashClient {
 	// PRIVATE FUNCTIONS
 	//////////////////////////////
 
-	private static _slashInteractionHandler(): void {
+	public static slashInteractionHandler(): void {
 		Client.getInstance().once("interactionCreate", async (interaction) => {
 			if (!interaction.isCommand()) return
 			try {
@@ -61,14 +54,6 @@ export class SlashClient {
 				})
 			}
 		})
-	}
-
-	//////////////////////////////
-	// FUNCTIONS
-	//////////////////////////////
-
-	public static getInstance(): SlashClient {
-		return this.instance || (this.instance = new this())
 	}
 
 	//////////////////////////////
