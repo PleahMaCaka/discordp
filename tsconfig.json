@@ -5,7 +5,8 @@
         "outDir": "package",
         "sourceMap": false,
         "declaration": true,
-        "strict": true
+        "strict": true,
+        "experimentalDecorators": true
     },
     "include": [
         "src/**/*.ts"

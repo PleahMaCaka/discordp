@@ -6,7 +6,7 @@ package
 
 # ================= mistake commit prevent ================= #
 # test bot config
-test/config.json
+dev/config.json
 
 # source js
 src/**/*.js
@@ -15,6 +15,3 @@ src/**/*.map
 # test js
 test/**/*.js
 test/**/*.map
-
-# ignore test bot
-dev/**/*
