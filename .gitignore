@@ -3,6 +3,7 @@
 node_modules
 build
 package
+yarn-error.log
 
 # ================= mistake commit prevent ================= #
 # test bot config
