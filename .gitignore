@@ -2,6 +2,7 @@
 .idea
 node_modules
 build
+/dev/build
 package
 yarn-error.log
 
