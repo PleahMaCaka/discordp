@@ -23,6 +23,7 @@
         "slash-commands"
     ],
     "dependencies": {
+        "@discordjs/builders": "^0.13.0",
         "@discordjs/rest": "^0.4.1",
         "@pleahmacaka/logger": "^1.1.3",
         "bufferutil": "^4.0.6",
@@ -42,5 +43,8 @@
         "build": "tsc",
         "dev": "yarn build && ts-node dev/start.ts",
         "test:bot": "yarn build && ts-node test/bot.ts"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.5.1"
     }
 }
