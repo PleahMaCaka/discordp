@@ -41,8 +41,7 @@
     },
     "scripts": {
         "build": "tsc",
-        "dev": "yarn build && ts-node dev/start.ts",
-        "test:bot": "yarn build && ts-node test/bot.ts"
+        "dev": "ts-node dev/start.ts"
     },
     "devDependencies": {
         "@types/jest": "^27.5.1"
