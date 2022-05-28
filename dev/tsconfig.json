@@ -2,18 +2,14 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "CommonJS",
-        "rootDir": "src",
-        "outDir": "package",
+        "rootDir": "./dev/build",
+        "outDir": "build",
         "sourceMap": false,
         "declaration": true,
         "strict": true,
-        "experimentalDecorators": true,
-        "baseUrl": "src"
+        "experimentalDecorators": true
     },
     "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "node_modules"
+        "./**/*.ts"
     ]
 }
