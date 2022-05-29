@@ -2,19 +2,37 @@ import { Client as ClientJS, ClientOptions } from "discord.js"
 
 export class Client extends ClientJS {
 
+	//////////////////////////////
+	// PRIVATE VARIABLES
+	//////////////////////////////
+
 	pClientOptions: pClientOptions
 	static pClientOptions: pClientOptions
 
-	private readonly client: Client
-	static client: Client
+	public static client: Client
 
-	constructor(options: ClientOptions, pClientOptions: pClientOptions) {
+	//////////////////////////////
+	// CONSTRUCTOR
+	//////////////////////////////
+
+	constructor(
+		options: ClientOptions,
+		pClientOptions: pClientOptions = {
+			debug: false
+		}
+	) {
 		super(options)
-		this.client = this
 		this.pClientOptions = pClientOptions
+		Client.client = this
+		Client.pClientOptions = pClientOptions
 	}
+
+	//////////////////////////////
+	// FUNCTIONS
+	//////////////////////////////
 
 	public static getInstance(): Client {
 		return this.client
 	}
+
 }
