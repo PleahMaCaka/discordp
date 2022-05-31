@@ -94,7 +94,7 @@ export class SlashClient {
 				if (Client.pClientOptions.debug) Logger.log("DEBUG", `DEPLOY -> ${guild}`)
 				try {
 					await rest.put(
-						Routes.applicationGuildCommands(Client.getInstance().user!!.id, guild),
+						Routes.applicationGuildCommands(Client.getInstance().user!.id, guild),
 						{ body: slashJson }
 					)
 				} catch (e) {
