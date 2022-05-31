@@ -34,7 +34,7 @@ export function SubSlash(info: SubSlashInfo) {
 
 		SlashClient.allSlash.set(info.root, {
 			name, description,
-			execute: original!!.execute,
+			execute: original!.execute,
 			subcommands: sub
 		})
 	}
