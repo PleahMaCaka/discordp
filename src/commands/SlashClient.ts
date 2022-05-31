@@ -50,7 +50,7 @@ export class SlashClient {
 	 * @param deployType - default "GUILD", it is deploying all GUILD
 	 * @param handler - if you not give false, using discordp's interaction handlers
 	 */
-	public static deploy(token: string, deployType: DeployType = "GUILD", handler: boolean = true): void {
+	public static deploy(token: string, deployType: DeployType = "GUILD", handler = true): void {
 		const rest = new REST({ version: '9' }).setToken(token)
 		const debug = Client.pClientOptions.debug
 		const slashJson: RESTPostAPIApplicationCommandsJSONBody[] = []
