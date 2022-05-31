@@ -1,5 +1,6 @@
 # =================        NOT NEED        ================= #
 .idea
+.vscode
 node_modules
 build
 /dev/build
