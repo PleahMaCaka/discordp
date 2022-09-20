@@ -1,13 +1,18 @@
 {
     "name": "discordp",
+    "description": "Create your discord bot by using TypeScript and this superset!",
     "version": "1.3.4",
-    "main": "package/Client.js",
-    "types": "package/Client.d.ts",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PleahMaCaka/discordp.git"
+    },
     "author": {
         "name": "PleahMaCaka",
         "url": "https://github.com/PleahMaCaka/"
     },
-    "license": "MIT",
+    "main": "package/Client.js",
+    "types": "package/Client.d.ts",
     "bugs": "https://github.com/PleahMaCaka/discordp/issues",
     "homepage": "https://github.com/PleahMaCaka/discordp#readme",
     "keywords": [
@@ -15,6 +20,7 @@
         "discord.js",
         "typescript",
         "type",
+        "typescript",
         "framework",
         "simple",
         "superset",
@@ -36,11 +42,6 @@
     },
     "devDependencies": {
         "@types/jest": "^29.0.3"
-    },
-    "description": "Create your discord bot by using TypeScript and this superset!",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/PleahMaCaka/discordp.git"
     },
     "scripts": {
         "build": "tsc",
