@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "module": "CommonJS",
+        "target": "ES2022",
+        "module": "ES2022",
         "rootDir": "src",
         "outDir": "package",
         "sourceMap": false,
         "declaration": true,
         "strict": true,
         "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "baseUrl": "src"
     },
     "include": [

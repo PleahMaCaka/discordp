@@ -1,7 +1,6 @@
 {
+    "extends": "../tsconfig.json",
     "compilerOptions": {
-        "target": "ES2022",
-        "module": "ES2022",
         "rootDir": "./dev/build",
         "outDir": "build",
         "sourceMap": false,
