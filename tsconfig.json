@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "ES2022",
+        "target": "ES2022",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "Node",
+        "strict": true,
+        "declaration": true,
+        "sourceMap": false,
+        "rootDir": "src",
+        "outDir": "package",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

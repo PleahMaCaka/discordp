@@ -1,1 +1,12 @@
+# IDE
+.idea
+.vscode
+.fleet
+
+# js
 node_modules
+package
+
+# prevent missed commit
+*.js
+*.map.js
