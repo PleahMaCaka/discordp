@@ -1,5 +1,5 @@
-import {Client as ClientJS} from "discord.js";
-import {CustomClientOptions} from "./typescript/interfaces/CustomClientOptions";
+import { Client as ClientJS } from "discord.js";
+import { CustomClientOptions } from "./typescript/interfaces/CustomClientOptions";
 
 class Client extends ClientJS {
 
