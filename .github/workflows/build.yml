@@ -30,7 +30,7 @@ jobs:
           node-version: 19.x
           registry-url: "https://registry.npmjs.org"
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2.2.4
         name: Install pnpm
 
       - name: Get pnpm store directory
