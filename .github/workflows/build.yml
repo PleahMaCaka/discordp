@@ -8,12 +8,14 @@ on:
     branches:
       - main
       - dev
-    paths-ignore:
-      - .npmignore
-      - .gitignore
-      - README.md
   release:
     types: [ created ]
+  workflow_dispatch:
+    tag:
+      required: false
+      default: 'Hello'
+      type: string
+
 
 jobs:
   build:
