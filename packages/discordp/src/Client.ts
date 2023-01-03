@@ -1,11 +1,11 @@
-import { Client as ClientJS, ClientOptions } from "discord.js";
+import { Client as ClientJS } from "discord.js";
+import { PClientOptions } from "./interfaces/PClientOptions";
 
 export class Client extends ClientJS {
 
-    constructor(options: ClientOptions) {
+
+    constructor(options: PClientOptions) {
         super(options)
     }
-
-    stuff = 1
 
 }
