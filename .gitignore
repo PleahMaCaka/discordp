@@ -1,20 +1,15 @@
-# =================        NOT NEED        ================= #
+# IDE
 .idea
 .vscode
+.fleet
+
+# js
 node_modules
-build
-/dev/build
-package
-yarn-error.log
 
-# ================= mistake commit prevent ================= #
-# test bot config
-dev/config.json
+# prevent missed commit
+*.js
+*.map.js
 
-# source js
-src/**/*.js
-src/**/*.map
-
-# test js
-test/**/*.js
-test/**/*.map
+# output
+packages/*/build
+packages/*/.turbo

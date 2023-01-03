@@ -3,15 +3,19 @@ on:
   pull_request:
     branches:
       - main
+      - dev
   push:
     branches:
       - main
-    paths-ignore:
-      - .npmignore
-      - .gitignore
-      - README.md
+      - dev
   release:
     types: [ created ]
+  workflow_dispatch:
+    tag:
+      required: false
+      default: 'Hello'
+      type: string
+
 
 jobs:
   build:
@@ -23,10 +27,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 19.x
           registry-url: "https://registry.npmjs.org"
 
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: pnpm/action-setup@v2.2.4
         name: Install pnpm
 
       - name: Get pnpm store directory
