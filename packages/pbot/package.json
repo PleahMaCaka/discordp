@@ -1,0 +1,16 @@
+{
+  "name": "pbot",
+  "description": "discordp dev-bot",
+  "version": "0.1.0",
+  "private": true,
+  "author": "PleahMaCaka",
+  "license": "MIT",
+  "main": "./src/start.ts",
+  "scripts": {
+    "start": ""
+  },
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "discordp": "../discordp"
+  }
+}

@@ -5,8 +5,11 @@
 
 # js
 node_modules
-package
 
 # prevent missed commit
 *.js
 *.map.js
+
+# output
+packages/*/build
+packages/*/.turbo
