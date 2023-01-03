@@ -14,5 +14,10 @@
   },
   "devDependencies": {
     "turbo": "^1.6.3"
-  }
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "packageManager": "pnpm@7.19.0"
 }
