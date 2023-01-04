@@ -1,5 +1,5 @@
-import { SlashStorage } from "../storage/SlashStorage";
 import { SlashInfo } from "../interfaces/slash/SlashInfo";
+import { SlashStorage } from "../storage/SlashStorage";
 
 export function Slash(info: SlashInfo): Function {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
