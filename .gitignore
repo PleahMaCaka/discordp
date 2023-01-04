@@ -11,5 +11,5 @@ node_modules
 *.map.js
 
 # output
-packages/*/build
-packages/*/.turbo
+packages/*/build/*
+packages/*/.turbo/*
