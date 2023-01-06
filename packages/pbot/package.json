@@ -7,7 +7,8 @@
   "license": "MIT",
   "main": "./src/start.ts",
   "scripts": {
-    "start": ""
+    "start": "",
+    "build": "tsc"
   },
   "dependencies": {
     "discord.js": "^14.7.1",
