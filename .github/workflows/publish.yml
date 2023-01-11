@@ -54,6 +54,6 @@ jobs:
         run: pnpm run build
 
       - name: Publish
-        run: pnpm install && pnpm publish
+        run: pnpm install && pnpm publish ./packages/discordp
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
