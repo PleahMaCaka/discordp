@@ -7,11 +7,14 @@
   "license": "MIT",
   "main": "./src/start.ts",
   "scripts": {
-    "start": "",
+    "start": "ts-node src/start.ts",
     "build": "tsc"
   },
   "dependencies": {
     "discord.js": "^14.7.1",
     "discordp": "../discordp"
+  },
+  "devDependencies": {
+    "discord-api-types": "^0.37.27"
   }
 }
