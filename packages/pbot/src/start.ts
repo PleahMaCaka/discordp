@@ -1,5 +1,7 @@
 import { GatewayIntentBits as Intent } from "discord-api-types/v10";
 import { Client } from "discordp";
+import { Logger } from "discordp/build/esm/utils/Logger";
+import { TOKEN } from "../config.json"
 
 const client = new Client({
     intents: [
@@ -26,7 +28,9 @@ const client = new Client({
 })
 
 client.once("ready", () => {
-    console.log("Ready!")
+    Logger.info("Ready!")
 })
 
-client.login("TOKEN")
+client.login(TOKEN).then(() => {
+    Logger.info(`===> Logged in as ${client.user?.tag}`)
+})
