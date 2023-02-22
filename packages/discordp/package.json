@@ -3,7 +3,7 @@
   "description": "",
   "version": "1.3.1",
   "author": "PleahMaCaka",
-  "main": "src/Client",
+  "main": "src/Client.ts",
   "license": "MIT",
   "scripts": {
     "build": "pnpm build:esm && pnpm build:cjs",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "discord-api-types": "^0.37.27",
     "typescript": "^4.9.4"
   }
 }

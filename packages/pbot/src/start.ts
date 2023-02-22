@@ -1,36 +1,23 @@
-import { GatewayIntentBits as Intent } from "discord-api-types/v10";
-import { Client } from "discordp";
-import { Logger } from "discordp/build/esm/utils/Logger";
+import { CommandInteraction } from "discord.js";
+import { Client } from "discordp"
+import { Slash } from "discordp/build/esm/commands/Slash";
+import { ALL_INTENTS } from "discordp/build/esm/utils/ALL_INTENTS";
 import { TOKEN } from "../config.json"
+
 
 const client = new Client({
     intents: [
-        Intent.Guilds,
-        Intent.GuildMembers,
-        Intent.GuildBans,
-        Intent.GuildEmojisAndStickers,
-        Intent.GuildIntegrations,
-        Intent.GuildWebhooks,
-        Intent.GuildInvites,
-        Intent.GuildVoiceStates,
-        Intent.GuildPresences,
-        Intent.GuildMessages,
-        Intent.GuildMessageReactions,
-        Intent.GuildMessageTyping,
-        Intent.DirectMessages,
-        Intent.DirectMessageReactions,
-        Intent.DirectMessageTyping,
-        Intent.MessageContent,
-        Intent.GuildScheduledEvents,
-        Intent.AutoModerationConfiguration,
-        Intent.AutoModerationExecution,
+        ALL_INTENTS
     ]
 })
 
-client.once("ready", () => {
-    Logger.info("Ready!")
-})
+new Slash({
+    name: "test",
+    run: async (interaction: CommandInteraction) => {
+        await interaction.reply("Hello World!")
+    }
+}).register()
 
-client.login(TOKEN).then(() => {
-    Logger.info(`===> Logged in as ${client.user?.tag}`)
-})
+client.initClientCommands()
+
+client.login(TOKEN)
